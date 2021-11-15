@@ -14,7 +14,6 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Entity
 @Table
-@Builder
 public class Board {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,4 +36,14 @@ public class Board {
 
     @OneToOne(fetch = FetchType.LAZY)
     private User user;
+
+    @Builder
+    public Board(Long id, String title, String subTitle, String content, BoardType boardType, User user) {
+        this.id = id;
+        this.title = title;
+        this.subTitle = subTitle;
+        this.content = content;
+        this.boardType = boardType;
+        this.user = user;
+    }
 }
