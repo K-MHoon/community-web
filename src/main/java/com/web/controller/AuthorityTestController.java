@@ -12,7 +12,7 @@ public class AuthorityTestController {
     }
     @GetMapping("/google")
     public String google() {
-        return "facebook";
+        return "google";
     }
 
     @GetMapping("/kakao")

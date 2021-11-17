@@ -17,4 +17,8 @@ public class LoginController {
     public String loginComplete(@SocialUser User user) {
         return "redirect:/board/list";
     }
+
+    @GetMapping("/logout")
+    public String logout() { return "logout";
+    }
 }
