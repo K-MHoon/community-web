@@ -17,13 +17,13 @@ import org.springframework.security.oauth2.client.OAuth2AuthorizedClientService;
 import org.springframework.security.oauth2.client.registration.ClientRegistration;
 import org.springframework.security.oauth2.client.registration.ClientRegistrationRepository;
 import org.springframework.security.oauth2.client.registration.InMemoryClientRegistrationRepository;
+import org.springframework.security.oauth2.core.AuthorizationGrantType;
+import org.springframework.security.oauth2.core.ClientAuthenticationMethod;
 import org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint;
 import org.springframework.security.web.csrf.CsrfFilter;
 import org.springframework.web.filter.CharacterEncodingFilter;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static com.web.domain.enums.SocialType.*;
@@ -107,6 +107,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             return CommonOAuth2Provider.FACEBOOK.getBuilder(client)
                     .clientId(registration.getClientId())
                     .clientSecret(registration.getClientSecret())
+                    .scope("email")
                     .build();
         }
 
